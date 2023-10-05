@@ -113,6 +113,9 @@
         /// <returns>True, если точка находится на границе трапеции; в противном случае - false.</returns>
         public bool IsOnBorder(Point point)
         {
+            // Проверяем, что значение X находится в диапазоне между A и B,
+            // а значение Y больше или равно 0 и меньше или равно тангенсу от X.
+            // Если все условия выполняются, возвращается true, иначе - false.
             return point.X <= B && point.X >= A && point.Y >= 0 && point.Y <= Math.Tan(point.X);
         }
     }
