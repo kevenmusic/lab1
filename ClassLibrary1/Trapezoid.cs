@@ -113,16 +113,7 @@
         /// <returns>True, если точка находится на границе трапеции; в противном случае - false.</returns>
         public bool IsOnBorder(Point point)
         {
-            bool exprasion = false; 
-            if (point.X <= B && point.X >= A) // B - самая крайняя правая точка на оси x, A - самая левая соответсвенно 
-            {
-                double tanX = Math.Tan(point.X); 
-                if (point.Y <= tanX && point.Y >= 0) // Меньше т.к точка должна лежать ниже графика. Больше 0 т.к внутри фигуры.
-                {
-                    exprasion = true;
-                }
-            }
-            return exprasion;
+            return point.X <= B && point.X >= A && point.Y >= 0 && point.Y <= Math.Tan(point.X);
         }
     }
 }
